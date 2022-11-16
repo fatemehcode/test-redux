@@ -1,13 +1,24 @@
-import React from 'react';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import { Counter } from './features/counter/Counter';
+import { Login } from './features/my-app/Login';
 import './App.css';
+import Navbar from './Navbar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">        
-        <Counter />        
-      </header>
+      
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path="/Counter" element={<Counter />}/>
+          <Route path="/Login" element={<Login />}/>
+        
+        </Routes>
+      </Router>
+              
+                
+      
     </div>
   );
 }
