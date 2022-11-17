@@ -3,6 +3,7 @@ import { Counter } from './features/counter/Counter';
 import { Login } from './features/my-app/Login';
 import './App.css';
 import Navbar from './Navbar';
+import { Contacts } from './features/my-app/Contacts';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/Counter" element={<Counter />}/>
           <Route path="/Login" element={<Login />}/>
+          <Route path="/Contacts" element={<Contacts />}/>
         
         </Routes>
       </Router>
