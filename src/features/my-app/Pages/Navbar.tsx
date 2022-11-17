@@ -1,5 +1,5 @@
 import { Await, Link } from "react-router-dom";
-import {auth} from "./features/my-app/config/firebase";
+import {auth} from "../config/firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {signOut} from 'firebase/auth';
 
@@ -13,11 +13,16 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <div className="links">
-                <li><Link to="/">Home</Link></li>
-                {/* <li><Link to="/Counter">Counter</Link></li> */}
-                <li><Link to="/Login">Login</Link></li>
-                <li><Link to="/Contact">Contact</Link></li>
-           
+                <Link to="/">Home</Link>
+                <Link to="/Counter">Counter</Link>
+                {!user?
+                    (<Link to="/Login">Login</Link>):
+                    (<div className="users menu">
+                        <Link to="/CreatePost">CreatePost</Link>
+                        <Link to="/Contact">Contact</Link>
+                    </div>)
+                } 
+                           
             </div>
             {user&&(
                 <div className="user">
