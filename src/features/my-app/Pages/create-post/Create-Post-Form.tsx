@@ -23,8 +23,7 @@ const CreatePostForm = () => {
     const [user]=useAuthState(auth);
     const onCreatePost=(data:CreateFormData)=>{
          addDoc(postRef,{
-            title:data.title,
-            description:data.description,
+            ...data,
             username:user?.displayName,
             userId:user?.uid,
         })
